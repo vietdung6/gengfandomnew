@@ -54,7 +54,7 @@ const achievements = [
       { title: "EWC 2025 Champion", titleVi: "Vô địch EWC 2025", type: "gold", icon: "🏆", major: true, players: ["Kiin", "Canyon", "Chovy", "Ruler", "Duro"], mvp: "Kiin" },
       { title: "LCK Regular Season Champion*", titleVi: "Vô địch LCK Regular*", type: "gold", icon: "🏆", major: true, players: ["Kiin", "Canyon", "Chovy", "Ruler", "Duro"], mvp: "Chovy" },
       { title: "LCK Cup Runner-up", titleVi: "Á quân LCK Cup", type: "silver", icon: "🥈", players: ["Kiin", "Canyon", "Chovy", "Ruler", "Duro"] },
-      { title: "Worlds 2025 - 4th Place", titleVi: "CKTG 2025 - Hạng 4", type: "bronze", icon: "🏅", players: ["Kiin", "Canyon", "Chovy", "Ruler", "Duro"] },
+      { title: "Worlds 2025 Semifinalist", titleVi: "Bán kết CKTG 2025", type: "bronze", icon: "🏅", major: true, players: ["Kiin", "Canyon", "Chovy", "Ruler", "Duro"] },
     ]
   },
   {
@@ -105,6 +105,7 @@ const achievements = [
     year: 2019,
     era: "Gen.G",
     items: [
+      { title: "Team Rebuild", titleVi: "Tái Thiết Đội Hình", type: "info", icon: "🔄" },
     ]
   },
   {
@@ -135,32 +136,28 @@ const achievements = [
     year: 2015,
     era: "Samsung Galaxy",
     items: [
+      { title: "Due to the new policy, Samsung Galaxy was established.", titleVi: "Do chính sách mới, Samsung Galaxy được thành lập", type: "info", icon: "🔄" },
     ]
   },
   {
     year: 2014,
     era: "Samsung",
     items: [
+      { title: "Samsung Ozone Renamed to Samsung White", titleVi: "Đổi tên Samsung Ozone thành Samsung White", type: "info", icon: "🔄" },
       { title: "WORLDS CHAMPION (Samsung White)", titleVi: "VÔ ĐỊCH THẾ GIỚI (Samsung White)", type: "legendary", icon: "👑", major: true, players: ["Looper", "DanDy", "PawN", "imp", "Mata"], mvp: "Mata" },
-      { title: "Champions Spring Champion (Blue)", titleVi: "Champions Mùa Xuân (Blue)", type: "gold", icon: "🏆", major: true, players: ["Acorn", "Spirit", "Dade", "Deft", "Heart"], mvp: "Dade" },
+      { title: "OGN Champions Spring (Samsung Blue)", titleVi: "OGN Champions Mùa Xuân (Samsung Blue)", type: "gold", icon: "🏆", major: true, players: ["Acorn", "Spirit", "Dade", "Deft", "Heart"], mvp: "Dade" },
     ]
   },
   {
     year: 2013,
-    era: "MVP Ozone",
-    items: [
-      { title: "Worlds 2013 Quarterfinalist", titleVi: "Tứ kết CKTG 2013", type: "bronze", icon: "🏅", players: ["Looper", "DanDy", "Dade", "imp", "Mata"] },
-    ]
-  },
-  {
-    year: 2012,
     era: "Samsung",
     items: [
-      { title: "Samsung Galaxy Team Founded", titleVi: "Thành lập đội Samsung Galaxy", type: "info", icon: "🎮" },
-      { title: "First entry into Korean LoL scene", titleVi: "Lần đầu gia nhập làng LMHT Hàn Quốc", type: "info", icon: "🇰🇷" },
+      { title: "Acquired MVP Ozone & MVP Blue", titleVi: "Mua lại MVP Ozone & MVP Blue", type: "info", icon: "🔄" },
+      { title: "Samsung Ozone & Samsung Blue Formed", titleVi: "Thành lập Samsung Ozone & Samsung Blue", type: "info", icon: "🎮" },
+      { title: "Worlds 2013 Group Stage", titleVi: "Vòng Bảng CKTG 2013", type: "bronze", icon: "🏅", players: ["Looper", "DanDy", "Dade", "imp", "Mata"] },
     ]
   },
-];
+]
 
 export default function AchievementsPage() {
   const [expandedYear, setExpandedYear] = useState<number | null>(2025);
@@ -175,7 +172,7 @@ export default function AchievementsPage() {
   const msiChampions = 2; // 2024, 2025
   const ewcChampions = 1; // 2025
   const internationalTitles = worldsChampions + msiChampions + ewcChampions; // Total international majors (Worlds + MSI + EWC)
-  const yearsActive = 13; // 2012-2025
+  const yearsActive = 12; // 2013-2025
 
   const milestones = language === "en" ? [
     { value: `${worldsChampions}x`, label: "Worlds Champions", icon: "worlds", color: "text-yellow-400" },
@@ -205,7 +202,7 @@ export default function AchievementsPage() {
         : "Đỉnh cao Samsung White: Vô địch CKTG 2014, Mata MVP.",
       highlights: language === "en"
         ? ["Worlds 2014 Champion", "Mata Worlds MVP", "Era-defining dominance"]
-        : ["Vô địch CKTG 2014", "Mata MVP CKTG", "Thống trị kỷ nguyên"],
+        : ["Vô địch CKTG 2014", "Mata MVP CKTG", "Thống trị vàng"],
     },
     {
       year: 2017,
@@ -214,8 +211,8 @@ export default function AchievementsPage() {
         ? "Samsung Galaxy 3-0 SKT in finals, Ruler/CoreJJ shine."
         : "Samsung Galaxy 3-0 SKT ở chung kết, Ruler/CoreJJ tỏa sáng.",
       highlights: language === "en"
-        ? ["Worlds 2017 Champion", "3-0 vs SKT", "Ruler/CoreJJ finals MVP-level play"]
-        : ["Vô địch CKTG 2017", "3-0 SKT", "Ruler/CoreJJ chơi như MVP"],
+        ? ["Worlds 2017 Champion", "3-0 vs SKT", "FMVP Ruler"]
+        : ["Vô địch CKTG 2017", "3-0 SKT", "FMVP Ruler"],
     },
     {
       year: 2022,
@@ -224,8 +221,8 @@ export default function AchievementsPage() {
         ? "Gen.G rebuilds around Chovy for sustained contention."
         : "Gen.G tái thiết quanh Chovy, duy trì vị thế top.",
       highlights: language === "en"
-        ? ["LCK titles resume", "Mid lane excellence", "Foundation for dynasty"]
-        : ["Trở lại vô địch LCK", "Mid lane đỉnh cao", "Nền móng triều đại"],
+        ? ["LCK titles resume", "Rebuild around Chovy", "New foundation for dynasty"]
+        : ["Trở lại vô địch LCK", "Tái thiết xoanh quanh Chovy", "Nền móng triều đại mới"],
     },
     {
       year: 2024,
@@ -241,8 +238,8 @@ export default function AchievementsPage() {
       year: 2025,
       title: language === "en" ? "2025 Triple Crowns" : "2025: Bộ ba danh hiệu",
       note: language === "en"
-        ? "MSI + EWC + Regular — asserting global supremacy."
-        : "MSI + EWC + Regular — khẳng định vị thế toàn cầu.",
+        ? "MSI + EWC + LCK Regular — asserting supremacy."
+        : "MSI + EWC + LCK Regular — khẳng định vị thế.",
       highlights: language === "en"
         ? ["MSI 2025 Champion", "EWC 2025 Champion", "Regular Season title"]
         : ["Vô địch MSI 2025", "Vô địch EWC 2025", "Vô địch Regular"],
@@ -392,7 +389,7 @@ export default function AchievementsPage() {
             className="text-center"
           >
             <motion.h1 
-              className="font-heading text-5xl sm:text-7xl mb-4"
+              className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl mb-3 sm:mb-4 px-2"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.4, type: "spring", stiffness: 200 }}
@@ -413,29 +410,34 @@ export default function AchievementsPage() {
               </motion.span>
             </motion.h1>
             <motion.p 
-              className="text-gray-300 max-w-xl mx-auto text-lg"
+              className="text-gray-300 max-w-xl mx-auto text-sm sm:text-base md:text-lg px-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               {language === "en" 
-                ? "From Samsung Galaxy's golden era to Gen.G's modern dominance. A legacy spanning over a decade."
-                : "Từ kỷ nguyên vàng của Samsung Galaxy đến sự thống trị của Gen.G. Di sản kéo dài hơn một thập kỷ."
+                ? "From Samsung Galaxy's golden era to Gen.G's dominance in LCK. A legacy spanning over a decade."
+                : "Từ kỷ nguyên vàng của Samsung Galaxy đến sự thống trị của Gen.G tại LCK."
               }
             </motion.p>
             <motion.div
-              className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6"
+              className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mt-4 sm:mt-6 px-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.75 }}
             >
               <button
                 onClick={startTour}
-                className="btn-gold flex items-center gap-2 text-base px-5 py-3"
+                className="btn-gold flex items-center gap-2 text-sm sm:text-base px-4 sm:px-5 py-2 sm:py-3 w-full sm:w-auto justify-center"
               >
-                🗺️ {language === "en" ? "History Tour" : "Tham quan lịch sử"}
+                <img 
+                  src="/images/genrang_emote.png" 
+                  alt="Genrang" 
+                  className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
+                />
+                {language === "en" ? "History Tour" : "Tham quan lịch sử"}
               </button>
-              <span className="text-gray-400 text-sm">
+              <span className="text-gray-400 text-xs sm:text-sm text-center">
                 {language === "en"
                   ? "Walk through our eras on this page."
                   : "Đi qua các kỷ nguyên ngay trên trang này."}
@@ -446,7 +448,7 @@ export default function AchievementsPage() {
       </section>
 
       {/* Legacy Banner */}
-      <section className="py-8 bg-gradient-to-r from-blue-900/20 via-gold/10 to-blue-900/20 border-y border-gold/20 relative overflow-hidden">
+      <section className="py-4 sm:py-6 md:py-8 bg-gradient-to-r from-blue-900/20 via-gold/10 to-blue-900/20 border-y border-gold/20 relative overflow-hidden">
         {/* Animated background shimmer */}
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-transparent via-gold/5 to-transparent"
@@ -459,16 +461,16 @@ export default function AchievementsPage() {
             ease: "linear",
           }}
         />
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <motion.div 
-            className="flex flex-wrap justify-center items-center gap-6 text-center"
+            className="flex flex-wrap justify-center items-center gap-3 sm:gap-4 md:gap-6 text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
             <motion.div 
-              className="flex items-center gap-3"
+              className="flex items-center gap-2 sm:gap-3"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -478,17 +480,17 @@ export default function AchievementsPage() {
               <motion.img 
                 src={eraLogos["Samsung Galaxy"]} 
                 alt="Samsung Galaxy"
-                className="w-10 h-10 object-contain"
+                className="w-6 h-6 sm:w-8 sm:h-10 object-contain"
                 whileHover={{ rotate: [0, -10, 10, -10, 0] }}
                 transition={{ duration: 0.5 }}
               />
               <div className="text-left">
-                <div className="text-blue-400 font-bold">SAMSUNG</div>
-                <div className="text-gray-400 text-xs">2012 - 2017</div>
+                <div className="text-blue-400 font-bold text-xs sm:text-sm">SAMSUNG</div>
+                <div className="text-gray-400 text-[10px] sm:text-xs">2012 - 2017</div>
               </div>
             </motion.div>
             <motion.div 
-              className="text-xl text-gold"
+              className="text-base sm:text-lg md:text-xl text-gold"
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -503,7 +505,7 @@ export default function AchievementsPage() {
               →
             </motion.div>
             <motion.div 
-              className="flex items-center gap-3"
+              className="flex items-center gap-2 sm:gap-3"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -511,12 +513,12 @@ export default function AchievementsPage() {
               whileHover={{ scale: 1.05 }}
             >
               <div className="text-left">
-                <div className="text-purple-400 font-bold">KSV<span className="text-gold">*</span></div>
-                <div className="text-gray-400 text-xs">2018</div>
+                <div className="text-purple-400 font-bold text-xs sm:text-sm">KSV<span className="text-gold">*</span></div>
+                <div className="text-gray-400 text-[10px] sm:text-xs">2018</div>
               </div>
             </motion.div>
             <motion.div 
-              className="text-xl text-gold"
+              className="text-base sm:text-lg md:text-xl text-gold"
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -531,7 +533,7 @@ export default function AchievementsPage() {
               →
             </motion.div>
             <motion.div 
-              className="flex items-center gap-3"
+              className="flex items-center gap-2 sm:gap-3"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -541,20 +543,20 @@ export default function AchievementsPage() {
               <motion.img 
                 src={eraLogos["Gen.G"]} 
                 alt="Gen.G"
-                className="w-10 h-10 object-contain"
+                className="w-6 h-6 sm:w-8 sm:h-10 object-contain"
                 whileHover={{ rotate: [0, -10, 10, -10, 0] }}
                 transition={{ duration: 0.5 }}
               />
               <div className="text-left">
-                <div className="text-gold font-bold">GEN.G</div>
-                <div className="text-gray-400 text-xs">2018 - {language === "en" ? "Present" : "Hiện tại"}</div>
+                <div className="text-gold font-bold text-xs sm:text-sm">GEN.G</div>
+                <div className="text-gray-400 text-[10px] sm:text-xs">2018 - {language === "en" ? "Present" : "Hiện tại"}</div>
               </div>
             </motion.div>
           </motion.div>
           
           {/* Legacy Explanation */}
           <motion.p 
-            className="text-center text-gray-500 text-xs mt-4 max-w-2xl mx-auto"
+            className="text-center text-gray-500 text-[10px] sm:text-xs mt-3 sm:mt-4 max-w-2xl mx-auto px-2"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -569,9 +571,9 @@ export default function AchievementsPage() {
       </section>
 
       {/* Milestones */}
-      <section className="py-12 border-b border-black-charcoal">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <section className="py-8 sm:py-10 md:py-12 border-b border-black-charcoal">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4">
             {milestones.map((milestone, i) => {
               const Icon = typeof milestone.icon === "string" ? null : milestone.icon;
               return (
@@ -583,27 +585,27 @@ export default function AchievementsPage() {
                   className="card-dark text-center"
                 >
                   {milestone.icon === "worlds" ? (
-                    <div className="flex justify-center mb-2">
-                      <WorldsLogo className={`w-8 h-8 ${milestone.color}`} />
+                    <div className="flex justify-center mb-1.5 sm:mb-2">
+                      <WorldsLogo className={`w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 ${milestone.color}`} />
                     </div>
                   ) : milestone.icon === "msi" ? (
-                    <div className="flex justify-center mb-2">
-                      <MSILogo className={`w-8 h-8 ${milestone.color}`} />
+                    <div className="flex justify-center mb-1.5 sm:mb-2">
+                      <MSILogo className={`w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 ${milestone.color}`} />
                     </div>
                   ) : milestone.icon === "lck" ? (
-                    <div className="flex justify-center mb-2">
-                      <img src={tournamentLogos.lck} alt="LCK" className="w-8 h-8 object-contain" />
+                    <div className="flex justify-center mb-1.5 sm:mb-2">
+                      <img src={tournamentLogos.lck} alt="LCK" className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 object-contain" />
                     </div>
                   ) : Icon ? (
-                    <Icon className={`w-8 h-8 mx-auto mb-2 ${milestone.color}`} />
+                    <Icon className={`w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 mx-auto mb-1.5 sm:mb-2 ${milestone.color}`} />
                   ) : null}
-                  <div className={`font-heading text-3xl sm:text-4xl mb-1 ${milestone.color} flex items-center justify-center gap-1`}>
+                  <div className={`font-heading text-2xl sm:text-3xl md:text-4xl mb-1 ${milestone.color} flex items-center justify-center gap-1`}>
                     {milestone.value}
-                    {milestone.icon === "lck" && <span className="text-gold text-lg">*</span>}
+                    {milestone.icon === "lck" && <span className="text-gold text-sm sm:text-base md:text-lg">*</span>}
                   </div>
-                  <div className="text-gray-400 text-xs sm:text-sm">{milestone.label}</div>
+                  <div className="text-gray-400 text-[10px] sm:text-xs md:text-sm leading-tight">{milestone.label}</div>
                   {milestone.icon === "lck" && (
-                    <div className="text-gray-500 text-xs mt-1">
+                    <div className="text-gray-500 text-[9px] sm:text-[10px] md:text-xs mt-1 px-1">
                       {language === "en" 
                         ? "LCK Regular 2025 = Spring + Summer combined (counts as 2 titles)"
                         : "LCK Regular 2025 = Xuân + Hè gộp (tính 2 danh hiệu)"
@@ -618,15 +620,15 @@ export default function AchievementsPage() {
       </section>
 
       {/* Worlds Champions Highlight */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
+      <section className="py-8 sm:py-10 md:py-12">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="bg-gradient-to-br from-yellow-900/30 via-black-light to-yellow-900/30 
-                      border border-yellow-500/30 rounded-2xl p-8 relative overflow-hidden group"
+                      border border-yellow-500/30 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 relative overflow-hidden group"
           >
             {/* Animated background effects */}
             <motion.div 
@@ -663,7 +665,7 @@ export default function AchievementsPage() {
             <div className="relative z-10 text-center">
               {/* Worlds Logo */}
               <motion.div 
-                className="flex justify-center mb-4"
+                className="flex justify-center mb-3 sm:mb-4"
                 initial={{ scale: 0, rotate: -180 }}
                 whileInView={{ scale: 1, rotate: 0 }}
                 viewport={{ once: true }}
@@ -673,11 +675,11 @@ export default function AchievementsPage() {
                   animate={{ rotate: [0, 5, -5, 0] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <WorldsLogo className="w-16 h-16 text-yellow-400 drop-shadow-[0_0_10px_rgba(234,179,8,0.5)]" />
+                  <WorldsLogo className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 text-yellow-400 drop-shadow-[0_0_10px_rgba(234,179,8,0.5)]" />
                 </motion.div>
               </motion.div>
               <motion.h2 
-                className="font-heading text-3xl text-yellow-400 mb-8"
+                className="font-heading text-xl sm:text-2xl md:text-3xl text-yellow-400 mb-4 sm:mb-6 md:mb-8 px-2"
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -686,7 +688,7 @@ export default function AchievementsPage() {
                 {language === "en" ? "WORLDS CHAMPIONS" : "VÔ ĐỊCH THẾ GIỚI"}
               </motion.h2>
               
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
                 {/* 2014 */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8, x: -50 }}
@@ -694,24 +696,24 @@ export default function AchievementsPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-black/50 rounded-xl p-6 border border-yellow-500/20 relative overflow-hidden group/item"
+                  className="bg-black/50 rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 border border-yellow-500/20 relative overflow-hidden group/item"
                 >
                   {/* Hover glow */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-yellow-500/0 to-yellow-500/0 group-hover/item:from-yellow-500/20 group-hover/item:to-transparent rounded-xl"
+                    className="absolute inset-0 bg-gradient-to-br from-yellow-500/0 to-yellow-500/0 group-hover/item:from-yellow-500/20 group-hover/item:to-transparent rounded-lg sm:rounded-xl"
                     transition={{ duration: 0.3 }}
                   />
                   
                   <div className="relative z-10">
                     <motion.div 
-                      className="flex justify-center mb-4"
+                      className="flex justify-center mb-2 sm:mb-3 md:mb-4"
                       whileHover={{ rotate: [0, -10, 10, 0] }}
                       transition={{ duration: 0.5 }}
                     >
-                      <WorldsLogo className="w-12 h-12 text-yellow-400 opacity-80" />
+                      <WorldsLogo className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-yellow-400 opacity-80" />
                     </motion.div>
                     <motion.div 
-                      className="font-heading text-4xl text-yellow-400 mb-2"
+                      className="font-heading text-2xl sm:text-3xl md:text-4xl text-yellow-400 mb-1 sm:mb-2"
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
@@ -719,16 +721,16 @@ export default function AchievementsPage() {
                     >
                       2014
                     </motion.div>
-                    <div className="text-white font-bold text-xl mb-2">Samsung White</div>
-                    <div className="text-gray-400 text-sm">
+                    <div className="text-white font-bold text-base sm:text-lg md:text-xl mb-1 sm:mb-2">Samsung White</div>
+                    <div className="text-gray-400 text-xs sm:text-sm">
                       {language === "en" 
                         ? "The most dominant Worlds run in history. 15-1 record."
                         : "Hành trình CKTG thống trị nhất lịch sử. Tỉ số 15-1."
                       }
                     </div>
-                    <div className="mt-4 flex justify-center gap-2 flex-wrap">
+                    <div className="mt-2 sm:mt-3 md:mt-4 flex justify-center gap-1.5 sm:gap-2 flex-wrap">
                       <motion.span 
-                        className="bg-gradient-to-r from-yellow-500/40 to-yellow-600/40 text-yellow-200 border border-yellow-400/50 shadow-lg shadow-yellow-500/30 text-xs px-2 py-1 rounded inline-flex items-center gap-1 font-bold"
+                        className="bg-gradient-to-r from-yellow-500/40 to-yellow-600/40 text-yellow-200 border border-yellow-400/50 shadow-lg shadow-yellow-500/30 text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded inline-flex items-center gap-1 font-bold"
                         whileHover={{ scale: 1.1 }}
                       >
                         Mata<span className="text-yellow-300">⭐</span>
@@ -736,7 +738,7 @@ export default function AchievementsPage() {
                       {["imp", "PawN", "DanDy", "Looper"].map((player, idx) => (
                         <motion.span 
                           key={player}
-                          className="bg-yellow-500/20 text-yellow-400 text-xs px-2 py-1 rounded"
+                          className="bg-yellow-500/20 text-yellow-400 text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded"
                           initial={{ opacity: 0, scale: 0 }}
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
@@ -757,24 +759,24 @@ export default function AchievementsPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 100 }}
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-black/50 rounded-xl p-6 border border-yellow-500/20 relative overflow-hidden group/item"
+                  className="bg-black/50 rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 border border-yellow-500/20 relative overflow-hidden group/item"
                 >
                   {/* Hover glow */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-yellow-500/0 to-yellow-500/0 group-hover/item:from-yellow-500/20 group-hover/item:to-transparent rounded-xl"
+                    className="absolute inset-0 bg-gradient-to-br from-yellow-500/0 to-yellow-500/0 group-hover/item:from-yellow-500/20 group-hover/item:to-transparent rounded-lg sm:rounded-xl"
                     transition={{ duration: 0.3 }}
                   />
                   
                   <div className="relative z-10">
                     <motion.div 
-                      className="flex justify-center mb-4"
+                      className="flex justify-center mb-2 sm:mb-3 md:mb-4"
                       whileHover={{ rotate: [0, -10, 10, 0] }}
                       transition={{ duration: 0.5 }}
                     >
-                      <WorldsLogo className="w-12 h-12 text-yellow-400 opacity-80" />
+                      <WorldsLogo className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-yellow-400 opacity-80" />
                     </motion.div>
                     <motion.div 
-                      className="font-heading text-4xl text-yellow-400 mb-2"
+                      className="font-heading text-2xl sm:text-3xl md:text-4xl text-yellow-400 mb-1 sm:mb-2"
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
@@ -782,16 +784,16 @@ export default function AchievementsPage() {
                     >
                       2017
                     </motion.div>
-                    <div className="text-white font-bold text-xl mb-2">Samsung Galaxy</div>
-                    <div className="text-gray-400 text-sm">
+                    <div className="text-white font-bold text-base sm:text-lg md:text-xl mb-1 sm:mb-2">Samsung Galaxy</div>
+                    <div className="text-gray-400 text-xs sm:text-sm">
                       {language === "en" 
                         ? "Revenge against SKT in finals. Perfect redemption."
                         : "Trả thù SKT trong trận chung kết. Sự cứu chuộc hoàn hảo."
                       }
                     </div>
-                    <div className="mt-4 flex justify-center gap-2 flex-wrap">
+                    <div className="mt-2 sm:mt-3 md:mt-4 flex justify-center gap-1.5 sm:gap-2 flex-wrap">
                       <motion.span 
-                        className="bg-gradient-to-r from-yellow-500/40 to-yellow-600/40 text-yellow-200 border border-yellow-400/50 shadow-lg shadow-yellow-500/30 text-xs px-2 py-1 rounded inline-flex items-center gap-1 font-bold"
+                        className="bg-gradient-to-r from-yellow-500/40 to-yellow-600/40 text-yellow-200 border border-yellow-400/50 shadow-lg shadow-yellow-500/30 text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded inline-flex items-center gap-1 font-bold"
                         whileHover={{ scale: 1.1 }}
                       >
                         Ruler<span className="text-yellow-300">⭐</span>
@@ -799,7 +801,7 @@ export default function AchievementsPage() {
                       {["CoreJJ", "Crown", "Ambition", "CuVee", "Haru"].map((player, idx) => (
                         <motion.span 
                           key={player}
-                          className="bg-yellow-500/20 text-yellow-400 text-xs px-2 py-1 rounded"
+                          className="bg-yellow-500/20 text-yellow-400 text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded"
                           initial={{ opacity: 0, scale: 0 }}
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
@@ -819,16 +821,16 @@ export default function AchievementsPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
+      <section className="py-8 sm:py-10 md:py-12">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-3xl mx-auto">
-            <h2 className="font-heading text-2xl text-gold mb-8 text-center">
+            <h2 className="font-heading text-xl sm:text-2xl text-gold mb-6 sm:mb-8 text-center px-2">
               {language === "en" ? "FULL TIMELINE" : "LỊCH SỬ ĐẦY ĐỦ"}
             </h2>
 
             {/* Notes - Bottom right, below title */}
-            <div className="mb-8 flex justify-end pr-8">
-              <div className="text-right text-gray-500 text-xs">
+            <div className="mb-6 sm:mb-8 flex justify-end pr-2 sm:pr-4 md:pr-8">
+              <div className="text-right text-gray-500 text-[10px] sm:text-xs">
                 <p>
                   <span className="text-gold">⭐</span> {language === "en" 
                     ? "FMVP or Tournament MVP"
@@ -872,7 +874,7 @@ export default function AchievementsPage() {
                   onClick={() => setExpandedYear(expandedYear === yearData.year ? null : yearData.year)}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className={`w-full bg-black-light border rounded-xl p-4 
+                  className={`w-full bg-black-light border rounded-lg sm:rounded-xl p-3 sm:p-4 
                            flex items-center justify-between hover:border-gold/50 transition-all relative overflow-hidden group
                            ${yearData.era === "Samsung" ? 'border-blue-500/30' : 
                              yearData.era === "Samsung Galaxy" ? 'border-blue-400/30' : 
@@ -886,10 +888,10 @@ export default function AchievementsPage() {
                     whileHover={{ x: "200%" }}
                     transition={{ duration: 0.6 }}
                   />
-                  <div className="flex items-center gap-4 flex-wrap">
-                    <span className="font-heading text-3xl text-gold">{yearData.year}</span>
+                  <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-wrap flex-1 min-w-0">
+                    <span className="font-heading text-xl sm:text-2xl md:text-3xl text-gold flex-shrink-0">{yearData.year}</span>
                     {/* Era Logo + Name */}
-                    <div className={`flex items-center gap-2 px-2 py-1 rounded ${
+                    <div className={`flex items-center gap-1.5 sm:gap-2 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded flex-shrink-0 ${
                       yearData.era === "Samsung" ? 'bg-blue-500/20' :
                       yearData.era === "Samsung Galaxy" ? 'bg-blue-400/20' :
                       yearData.era === "KSV" ? 'bg-purple-500/20' :
@@ -900,10 +902,10 @@ export default function AchievementsPage() {
                         <img 
                           src={eraLogos[yearData.era]} 
                           alt={yearData.era}
-                          className="w-5 h-5 object-contain"
+                          className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
                         />
                       )}
-                      <span className={`text-xs ${
+                      <span className={`text-[10px] sm:text-xs ${
                         yearData.era === "Samsung" ? 'text-blue-400' :
                         yearData.era === "Samsung Galaxy" ? 'text-blue-300' :
                         yearData.era === "KSV" ? 'text-purple-400' :
@@ -915,32 +917,32 @@ export default function AchievementsPage() {
                     </div>
                     {/* Cups count by type */}
                     {totalCups > 0 && (
-                      <div className="flex items-center gap-2 text-xs">
+                      <div className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs flex-wrap">
                         {worldsCups > 0 && (
-                          <span className="flex items-center gap-1 text-yellow-400">
-                            <WorldsLogo className="w-4 h-4" />
+                          <span className="flex items-center gap-0.5 sm:gap-1 text-yellow-400">
+                            <WorldsLogo className="w-3 h-3 sm:w-4 sm:h-4" />
                             {worldsCups}
                           </span>
                         )}
                         {msiCups > 0 && (
-                          <span className="flex items-center gap-1 text-blue-400">
-                            <MSILogo className="w-4 h-4" />
+                          <span className="flex items-center gap-0.5 sm:gap-1 text-blue-400">
+                            <MSILogo className="w-3 h-3 sm:w-4 sm:h-4" />
                             {msiCups}
                           </span>
                         )}
                         {ewcCups > 0 && (
-                          <span className="flex items-center gap-1 text-white">
-                            <EWCLogo className="w-4 h-4" />
+                          <span className="flex items-center gap-0.5 sm:gap-1 text-white">
+                            <EWCLogo className="w-3 h-3 sm:w-4 sm:h-4" />
                             {ewcCups}
                           </span>
                         )}
                         {lckCups > 0 && (
-                          <span className="flex items-center gap-1 text-gold">
-                            <img src={tournamentLogos.lck} alt="LCK" className="w-4 h-4 object-contain" />
+                          <span className="flex items-center gap-0.5 sm:gap-1 text-gold">
+                            <img src={tournamentLogos.lck} alt="LCK" className="w-3 h-3 sm:w-4 sm:h-4 object-contain" />
                             {lckCups}
                           </span>
                         )}
-                        <span className="text-gray-400 ml-1">
+                        <span className="text-gray-400 ml-0.5 sm:ml-1">
                           ({totalCups} {language === "en" ? "cups" : "cup"})
                         </span>
                       </div>
@@ -964,7 +966,7 @@ export default function AchievementsPage() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="py-4 space-y-3 pl-8 border-l-2 border-gold/30 ml-4 mt-2 relative">
+                      <div className="py-3 sm:py-4 space-y-2 sm:space-y-3 pl-4 sm:pl-6 md:pl-8 border-l-2 border-gold/30 ml-2 sm:ml-3 md:ml-4 mt-2 relative">
                         {/* Animated timeline line */}
                         <motion.div
                           className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-gold via-gold/50 to-transparent"
@@ -995,7 +997,7 @@ export default function AchievementsPage() {
                               x: 5,
                               transition: { duration: 0.2 }
                             }}
-                            className={`flex items-center gap-4 p-4 rounded-xl relative overflow-hidden group/item ${
+                            className={`flex items-center gap-2 sm:gap-3 md:gap-4 p-3 sm:p-4 rounded-lg sm:rounded-xl relative overflow-hidden group/item ${
                               achievement.type === 'legendary'
                                 ? 'bg-gradient-to-r from-yellow-500/20 to-yellow-700/20 border-2 border-yellow-500/50'
                                 : achievement.type === 'gold' 
@@ -1036,7 +1038,7 @@ export default function AchievementsPage() {
                                 </motion.div>
                               ) : (
                                 <motion.span 
-                                  className="text-3xl"
+                                  className="text-xl sm:text-2xl md:text-3xl flex-shrink-0"
                                   animate={achievement.type === 'legendary' ? {
                                     rotate: [0, 5, -5, 0],
                                   } : {}}
@@ -1045,10 +1047,10 @@ export default function AchievementsPage() {
                                   {achievement.icon}
                                 </motion.span>
                               )}
-                              <div className="flex-1">
+                              <div className="flex-1 min-w-0">
                                 <motion.h3 
-                                  className={`font-semibold mb-2 ${
-                                    achievement.type === 'legendary' ? 'text-yellow-300 text-lg' :
+                                  className={`font-semibold mb-1 sm:mb-2 text-sm sm:text-base ${
+                                    achievement.type === 'legendary' ? 'text-yellow-300 sm:text-lg' :
                                     achievement.type === 'gold' ? 'text-yellow-400' :
                                     achievement.type === 'silver' ? 'text-gray-300' :
                                     achievement.type === 'info' ? 'text-blue-300' :
@@ -1120,15 +1122,15 @@ export default function AchievementsPage() {
       </section>
 
       {/* 2025 Highlight */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
+      <section className="py-8 sm:py-10 md:py-12">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="bg-gradient-to-br from-gold/20 via-black-light to-gold/20 
-                      border border-gold/30 rounded-2xl p-8 text-center relative overflow-hidden"
+                      border border-gold/30 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 text-center relative overflow-hidden"
           >
             {/* Animated background */}
             <motion.div
@@ -1145,7 +1147,7 @@ export default function AchievementsPage() {
             
             {/* Fire emoji animation */}
             <motion.h2 
-              className="font-heading text-3xl text-gold mb-4 relative z-10"
+              className="font-heading text-xl sm:text-2xl md:text-3xl text-gold mb-3 sm:mb-4 relative z-10 px-2"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -1170,7 +1172,7 @@ export default function AchievementsPage() {
               </motion.span>
             </motion.h2>
             <motion.p 
-              className="text-gray-400 mb-8 relative z-10"
+              className="text-gray-400 mb-6 sm:mb-8 relative z-10 text-sm sm:text-base px-2"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -1182,7 +1184,7 @@ export default function AchievementsPage() {
               }
             </motion.p>
             
-            <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-8 relative z-10">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 max-w-2xl mx-auto mb-6 sm:mb-8 relative z-10 px-2">
               {/* MSI */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.3, rotateY: -90 }}
@@ -1190,23 +1192,23 @@ export default function AchievementsPage() {
                 viewport={{ once: true }}
                 transition={{ delay: 0, duration: 0.8, type: "spring", stiffness: 100 }}
                 whileHover={{ scale: 1.15, y: -10, rotateY: 5 }}
-                className="bg-black/50 rounded-xl p-6 relative overflow-hidden group/item border border-blue-500/20"
+                className="bg-black/50 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 relative overflow-hidden group/item border border-blue-500/20"
               >
                 {/* Glow effect */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-blue-500/0 group-hover/item:from-blue-500/20 group-hover/item:to-transparent rounded-xl"
+                  className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-blue-500/0 group-hover/item:from-blue-500/20 group-hover/item:to-transparent rounded-lg sm:rounded-xl"
                   transition={{ duration: 0.3 }}
                 />
                 <div className="relative z-10">
                   <motion.div 
-                    className="flex justify-center mb-3"
+                    className="flex justify-center mb-2 sm:mb-3"
                     animate={{ rotate: [0, 5, -5, 0] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                   >
-                    <MSILogo className="w-16 h-16 text-blue-400 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
+                    <MSILogo className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 text-blue-400 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
                   </motion.div>
-                  <div className="text-gold font-heading text-lg">MSI</div>
-                  <div className="text-gold font-heading text-sm">2025</div>
+                  <div className="text-gold font-heading text-sm sm:text-base md:text-lg">MSI</div>
+                  <div className="text-gold font-heading text-xs sm:text-sm">2025</div>
                 </div>
               </motion.div>
               
@@ -1217,23 +1219,23 @@ export default function AchievementsPage() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, duration: 0.8, type: "spring", stiffness: 100 }}
                 whileHover={{ scale: 1.15, y: -10, rotateY: 5 }}
-                className="bg-black/50 rounded-xl p-6 relative overflow-hidden group/item border border-white/20"
+                className="bg-black/50 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 relative overflow-hidden group/item border border-white/20"
               >
                 {/* Glow effect */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/0 group-hover/item:from-white/20 group-hover/item:to-transparent rounded-xl"
+                  className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/0 group-hover/item:from-white/20 group-hover/item:to-transparent rounded-lg sm:rounded-xl"
                   transition={{ duration: 0.3 }}
                 />
                 <div className="relative z-10">
                   <motion.div 
-                    className="flex justify-center mb-3"
+                    className="flex justify-center mb-2 sm:mb-3"
                     animate={{ rotate: [0, -5, 5, 0] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                   >
-                    <EWCLogo className="w-16 h-16 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]" />
+                    <EWCLogo className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]" />
                   </motion.div>
-                  <div className="text-gold font-heading text-lg">EWC</div>
-                  <div className="text-gold font-heading text-sm">2025</div>
+                  <div className="text-gold font-heading text-sm sm:text-base md:text-lg">EWC</div>
+                  <div className="text-gold font-heading text-xs sm:text-sm">2025</div>
                 </div>
               </motion.div>
               
@@ -1244,29 +1246,29 @@ export default function AchievementsPage() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.8, type: "spring", stiffness: 100 }}
                 whileHover={{ scale: 1.15, y: -10, rotateY: 5 }}
-                className="bg-black/50 rounded-xl p-6 relative overflow-hidden group/item border border-gold/20"
+                className="bg-black/50 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 relative overflow-hidden group/item border border-gold/20"
               >
                 {/* Glow effect */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-gold/0 to-gold/0 group-hover/item:from-gold/20 group-hover/item:to-transparent rounded-xl"
+                  className="absolute inset-0 bg-gradient-to-br from-gold/0 to-gold/0 group-hover/item:from-gold/20 group-hover/item:to-transparent rounded-lg sm:rounded-xl"
                   transition={{ duration: 0.3 }}
                 />
                 <div className="relative z-10">
                   <motion.div 
-                    className="flex justify-center mb-3"
+                    className="flex justify-center mb-2 sm:mb-3"
                     animate={{ rotate: [0, 5, -5, 0] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                   >
-                    <img src={tournamentLogos.lck} alt="LCK" className="w-16 h-16 object-contain drop-shadow-[0_0_10px_rgba(212,175,55,0.5)]" />
+                    <img src={tournamentLogos.lck} alt="LCK" className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain drop-shadow-[0_0_10px_rgba(212,175,55,0.5)]" />
                   </motion.div>
-                  <div className="text-gold font-heading text-lg">LCK Regular</div>
-                  <div className="text-gold font-heading text-sm">2025</div>
+                  <div className="text-gold font-heading text-sm sm:text-base md:text-lg">LCK Regular</div>
+                  <div className="text-gold font-heading text-xs sm:text-sm">2025</div>
                 </div>
               </motion.div>
             </div>
 
             <motion.div 
-              className="text-gray-400 text-sm relative z-10"
+              className="text-gray-400 text-xs sm:text-sm relative z-10 px-2"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -1282,19 +1284,19 @@ export default function AchievementsPage() {
       </section>
 
       {/* CEO Quote */}
-      <section className="py-12 bg-black-light border-t border-black-charcoal">
-        <div className="container mx-auto px-4">
+      <section className="py-8 sm:py-10 md:py-12 bg-black-light border-t border-black-charcoal">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="max-w-3xl mx-auto"
           >
-            <div className="bg-black/50 border border-gold/20 rounded-2xl p-6 md:p-8">
-              <div className="text-gold text-sm font-medium mb-4">
+            <div className="bg-black/50 border border-gold/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8">
+              <div className="text-gold text-xs sm:text-sm font-medium mb-3 sm:mb-4">
                 {language === "en" ? "FROM GEN.G CEO" : "TỪ CEO GEN.G"}
               </div>
-              <blockquote className="text-gray-300 italic mb-4 leading-relaxed">
+              <blockquote className="text-gray-300 italic mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">
                 {language === "en" 
                   ? "\"Verified with Riot official: '14, '17 yes. Trophies: we do not own them and cannot control where they are. Good idea here though: we'll make a replica of them if we win worlds as a sign that we've partially lived up to the incredible legacy of those teams.\""
                   : "\"Đã được Riot xác nhận: '14, '17 có. Chiếc cúp thật: chúng tôi không sở hữu được nó. Một ý tưởng đáng cân nhắc: Gen.G sẽ làm một bản sao của 2 chiếc cúp cũ nếu chúng tôi vô địch, đó là dấu hiệu cho việc xứng đáng với di sản của 2 đội tuyển tiền nhiệm.\""
@@ -1315,13 +1317,13 @@ export default function AchievementsPage() {
       </section>
 
       {/* Legacy Quote */}
-      <section className="py-12">
-        <div className="container mx-auto px-4 text-center">
+      <section className="py-8 sm:py-10 md:py-12">
+        <div className="container mx-auto px-4 sm:px-6 text-center">
           <motion.blockquote
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-2xl text-gray-400 italic max-w-3xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl text-gray-400 italic max-w-3xl mx-auto px-2"
           >
             {language === "en" 
               ? "\"We will strive to prove that Gen.G is worthy of the legacy of our two predecessor teams.\""

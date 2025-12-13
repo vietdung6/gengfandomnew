@@ -16,7 +16,6 @@
 - **Achievements** - Trophy cabinet, timeline of accomplishments
 - **Gallery** - Photos, videos, and fan art collection
 
-### ⛩️ Fan Zone
 - **Đền Thờ Chovy (Chovy Shrine)** - Interactive shrine with candle lighting, stats, quotes
 - **Prediction Game** - Predict match outcomes to earn Gen.G Points (Coming Soon)
 - **Gen.G Quiz** - Test your knowledge about the team (Coming Soon)
@@ -28,7 +27,6 @@
 - **Responsive Design** - Mobile-first approach
 - **Dark Mode** - Easy on the eyes for late-night gaming sessions
 
-## 🚀 Getting Started
 
 ### Prerequisites
 - Node.js 18.17 or later
@@ -63,8 +61,6 @@ npm run dev
 | **Framer Motion** | Animations |
 | **Lucide React** | Icons |
 | **Google Fonts** | Bebas Neue + Inter |
-
-## 📁 Project Structure
 
 ```
 gen-g-fandom/
@@ -103,8 +99,6 @@ npm run start    # Start production server
 npm run lint     # Run ESLint
 ```
 
-## 🤝 Contributing
-
 This is a fan-made project. Contributions are welcome!
 
 1. Fork the repository
@@ -117,18 +111,9 @@ This is a fan-made project. Contributions are welcome!
 
 This is an **unofficial fan-made website** and is not affiliated with, endorsed by, or connected to Gen.G Esports in any way. All trademarks, logos, and brand names are the property of their respective owners.
 
-## 📄 License
-
-MIT License - feel free to use this project for learning and personal use.
-
----
 
 <p align="center">
   Made with 💛 by Gen.G fans, for Gen.G fans
-</p>
-
-<p align="center">
-  <strong>⛩️ CHOVY SHRINE AWAITS ⛩️</strong>
-</p>
+</p> 
 
 

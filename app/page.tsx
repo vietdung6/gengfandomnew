@@ -221,7 +221,7 @@ export default function HomePage() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 text-center px-4 py-20">
+        <div className="relative z-10 text-center px-4 sm:px-6 py-12 sm:py-16 md:py-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -230,18 +230,18 @@ export default function HomePage() {
             {/* Badge */}
             <motion.div 
               className="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 
-                        rounded-full px-4 py-2 mb-6"
+                        rounded-full px-3 sm:px-4 py-1.5 sm:py-2 mb-4 sm:mb-6"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
             >
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-gold text-sm font-medium">{t.home.badge}</span>
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full animate-pulse" />
+              <span className="text-gold text-xs sm:text-sm font-medium">{t.home.badge}</span>
             </motion.div>
 
             {/* Main Title */}
             <motion.h1 
-              className="font-heading text-7xl sm:text-8xl md:text-9xl text-white mb-4"
+              className="font-heading text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-white mb-3 sm:mb-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -250,7 +250,7 @@ export default function HomePage() {
             </motion.h1>
             
             <motion.p 
-              className="font-heading text-3xl sm:text-4xl text-white/60 mb-8"
+              className="font-heading text-xl sm:text-3xl md:text-4xl text-white/60 mb-6 sm:mb-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
@@ -260,7 +260,7 @@ export default function HomePage() {
 
             {/* Subtitle */}
             <motion.p 
-              className="text-lg text-gray-400 max-w-2xl mx-auto mb-12"
+              className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-8 sm:mb-12 px-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
@@ -270,15 +270,15 @@ export default function HomePage() {
 
             {/* CTA Buttons */}
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
             >
-              <Link href="/team" className="btn-gold inline-flex items-center justify-center gap-2">
-                {t.home.meetTeam} <ArrowRight size={18} />
+              <Link href="/team" className="btn-gold inline-flex items-center justify-center gap-2 text-sm sm:text-base py-2.5 sm:py-3 px-4 sm:px-6">
+                {t.home.meetTeam} <ArrowRight size={16} className="sm:w-[18px] sm:h-[18px]" />
               </Link>
-              <Link href="/fan-zone/shrine" className="btn-outline-gold inline-flex items-center justify-center gap-2">
+              <Link href="/fan-zone/shrine" className="btn-outline-gold inline-flex items-center justify-center gap-2 text-sm sm:text-base py-2.5 sm:py-3 px-4 sm:px-6">
                 <span>⛩️</span> {t.home.shrine}
               </Link>
             </motion.div>
@@ -302,15 +302,15 @@ export default function HomePage() {
       </section>
 
       {/* Quick Stats Section */}
-      <section className="py-20 bg-black-light border-y border-black-charcoal relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 bg-black-light border-y border-black-charcoal relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-transparent to-gold/5" />
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
           >
             {stats.map((stat, i) => {
               const Icon = stat.icon;
@@ -323,14 +323,14 @@ export default function HomePage() {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
                 >
-                  <div className="flex justify-center mb-3">
-                    {stat.logo || <Icon className="w-8 h-8 text-gold" />}
+                  <div className="flex justify-center mb-2 sm:mb-3">
+                    {stat.logo || <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-gold" />}
                   </div>
-                  <div className="font-heading text-4xl sm:text-5xl text-white mb-1">
+                  <div className="font-heading text-3xl sm:text-4xl md:text-5xl text-white mb-1">
                     {stat.value}
-                    {stat.asterisk && <span className="text-gold text-lg align-top">{stat.asterisk}</span>}
+                    {stat.asterisk && <span className="text-gold text-sm sm:text-lg align-top">{stat.asterisk}</span>}
                   </div>
-                  <div className="text-gray-400 text-sm">{stat.label}</div>
+                  <div className="text-gray-400 text-xs sm:text-sm">{stat.label}</div>
                 </motion.div>
               );
             })}

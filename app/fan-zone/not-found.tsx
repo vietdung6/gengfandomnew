@@ -52,24 +52,35 @@ export default function NotFound() {
             : "Vui lòng trở về trang trước."}
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+          <Link href="/" className="w-full sm:w-auto">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-gold inline-flex items-center gap-2"
+              className="btn-gold inline-flex items-center justify-center gap-2 w-full sm:w-auto
+                       text-sm sm:text-base py-2.5 sm:py-3 px-6 sm:px-8"
             >
-              <Home size={18} />
+              <Home size={18} className="sm:w-5 sm:h-5" />
               {language === "en" ? "Go Home" : "Về Trang Chủ"}
             </motion.button>
           </Link>
           <motion.button
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, backgroundColor: "rgba(212, 175, 55, 0.1)" }}
             whileTap={{ scale: 0.95 }}
             onClick={() => window.history.back()}
-            className="btn-outline-gold inline-flex items-center gap-2"
+            className="inline-flex items-center justify-center gap-2 w-full sm:w-auto
+                     border-2 border-gold/80 text-gold font-semibold
+                     px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg
+                     bg-black/50 backdrop-blur-sm
+                     hover:bg-gold/10 hover:border-gold
+                     active:bg-gold/20
+                     transition-all duration-300
+                     shadow-[0_0_15px_rgba(212,175,55,0.2)]
+                     hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]
+                     text-sm sm:text-base
+                     touch-manipulation"
           >
-            <ArrowLeft size={18} />
+            <ArrowLeft size={18} className="sm:w-5 sm:h-5" />
             {language === "en" ? "Go Back" : "Quay Lại"}
           </motion.button>
         </div>

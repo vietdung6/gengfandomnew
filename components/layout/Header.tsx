@@ -111,14 +111,25 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-gold p-2"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          {/* Mobile: Search + Menu Buttons */}
+          <div className="lg:hidden flex items-center gap-2">
+            {/* Mobile Search Button */}
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              className="text-gold p-2 hover:bg-gold/10 rounded-lg transition-colors"
+              aria-label="Search"
+            >
+              <Search size={24} />
+            </button>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-gold p-2 hover:bg-gold/10 rounded-lg transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 

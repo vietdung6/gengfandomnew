@@ -134,7 +134,7 @@ export default function AboutPage() {
                 className="text-center"
               >
                 <p className="text-gray-400 text-sm mb-1">{t.about.admin}</p>
-                <p className="font-heading text-2xl text-white">Vũ Việt Dũng</p>
+                <p className="font-heading text-2xl text-white">Dũng</p>
                 <p className="text-gray-500 text-sm mt-1">{t.about.editorInChief}</p>
               </motion.div>
 
@@ -166,7 +166,7 @@ export default function AboutPage() {
 
                 {/* Email */}
                 <motion.a
-                  href="mailto:123dungz@gmail.com"
+                  href="mailto:admin@gengfandom.fun"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -183,7 +183,7 @@ export default function AboutPage() {
                     <div className="flex-grow">
                       <p className="text-gray-400 text-sm mb-1">{t.about.email}</p>
                       <p className="font-heading text-lg text-white group-hover:text-gold transition-colors break-all">
-                        123dungz@gmail.com
+                        admin@gengfandom.fun
                       </p>
                     </div>
                   </div>

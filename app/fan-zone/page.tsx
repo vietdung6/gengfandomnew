@@ -52,7 +52,7 @@ export default function FanZonePage() {
       color: "from-green-500/30",
     },
     {
-      title: language === "en" ? "Genrang Pet" : "Thú Cưng Genrang",
+      title: language === "en" ? "Genrang Pet" : "Nuôi em Genrang",
       description: language === "en"
         ? "Take care of Genrang, Gen.G's mascot! Feed, play and watch it grow!"
         : "Chăm sóc Genrang, linh vật của Gen.G! Cho ăn, chơi và xem nó lớn lên!",
@@ -91,21 +91,21 @@ export default function FanZonePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-gold/10 to-transparent" />
         </div>
         
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
             <div className="inline-flex items-center gap-2 bg-gold/20 border border-gold/50 
-                          rounded-full px-4 py-2 mb-6 backdrop-blur-sm">
-              <Gamepad2 className="w-4 h-4 text-gold" />
-              <span className="text-gold text-sm font-medium">{t.fanZone.badge}</span>
+                          rounded-full px-3 sm:px-4 py-1.5 sm:py-2 mb-4 sm:mb-6 backdrop-blur-sm">
+              <Gamepad2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gold" />
+              <span className="text-gold text-xs sm:text-sm font-medium">{t.fanZone.badge}</span>
             </div>
-            <h1 className="font-heading text-5xl sm:text-7xl mb-4">
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-3 sm:mb-4 px-2">
               <span className="text-gradient-gold">{t.fanZone.title}</span>
             </h1>
-            <p className="text-gray-300 max-w-xl mx-auto text-lg">
+            <p className="text-gray-300 max-w-xl mx-auto text-sm sm:text-base md:text-lg px-2">
               {t.fanZone.description}
             </p>
           </motion.div>
@@ -113,9 +113,9 @@ export default function FanZonePage() {
       </section>
 
       {/* Activities Grid */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-6">
+      <section className="py-8 sm:py-12">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
             {fanZoneItems.map((item, i) => (
               <motion.div
                 key={item.title}
@@ -125,41 +125,41 @@ export default function FanZonePage() {
                 whileHover={{ scale: 1.02, y: -5 }}
               >
                 <Link href={item.href}>
-                  <div className={`card-dark relative overflow-hidden group cursor-pointer min-h-[200px]
-                                bg-gradient-to-br ${item.color} to-transparent`}>
+                  <div className={`card-dark relative overflow-hidden group cursor-pointer min-h-[180px] sm:min-h-[200px]
+                                bg-gradient-to-br ${item.color} to-transparent p-4 sm:p-6`}>
                     {/* Badge */}
-                    <div className="absolute top-4 right-4 z-10">
-                      <span className={`${item.badgeColor} text-xs px-2 py-1 rounded font-bold`}>
+                    <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10">
+                      <span className={`${item.badgeColor} text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded font-bold`}>
                         {item.badge}
                       </span>
                     </div>
 
                     <div className="relative z-10">
                       {item.href === "/fan-zone/genrang" ? (
-                        <div className="mb-4 flex justify-start">
+                        <div className="mb-3 sm:mb-4 flex justify-start">
                           <img 
                             src="/images/Genrang.png"
                             alt="Genrang"
-                            className="w-24 h-24 object-contain"
+                            className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
                             onError={(e) => {
                               const target = e.target as HTMLImageElement;
                               target.style.display = 'none';
                               target.nextElementSibling?.classList.remove('hidden');
                             }}
                           />
-                          <span className="text-5xl hidden">{item.icon}</span>
+                          <span className="text-4xl sm:text-5xl hidden">{item.icon}</span>
                         </div>
                       ) : (
-                        <span className="text-5xl mb-4 block">{item.icon}</span>
+                        <span className="text-4xl sm:text-5xl mb-3 sm:mb-4 block">{item.icon}</span>
                       )}
-                      <h3 className="font-heading text-2xl text-white group-hover:text-gold 
-                                   transition-colors mb-2">
+                      <h3 className="font-heading text-xl sm:text-2xl text-white group-hover:text-gold 
+                                   transition-colors mb-1.5 sm:mb-2">
                         {item.title}
                       </h3>
-                      <p className="text-gray-400 mb-4">{item.description}</p>
-                      <span className="text-gold font-semibold inline-flex items-center gap-2 
-                                     group-hover:gap-3 transition-all">
-                        {language === "en" ? "Enter" : "Vào"} <ArrowRight size={16} />
+                      <p className="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">{item.description}</p>
+                      <span className="text-gold font-semibold inline-flex items-center gap-1.5 sm:gap-2 
+                                     group-hover:gap-2 sm:group-hover:gap-3 transition-all text-sm sm:text-base">
+                        {language === "en" ? "Enter" : "Vào"} <ArrowRight size={14} className="sm:w-4 sm:h-4" />
                       </span>
                     </div>
 
@@ -175,20 +175,20 @@ export default function FanZonePage() {
       </section>
 
       {/* Leaderboard */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
+      <section className="py-8 sm:py-12">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="max-w-2xl mx-auto"
           >
-            <div className="text-center mb-8">
-              <Trophy className="w-8 h-8 text-gold mx-auto mb-4" />
-              <h2 className="font-heading text-3xl text-gold mb-2">
+            <div className="text-center mb-6 sm:mb-8">
+              <Trophy className="w-6 h-6 sm:w-8 sm:h-8 text-gold mx-auto mb-3 sm:mb-4" />
+              <h2 className="font-heading text-2xl sm:text-3xl text-gold mb-2 px-2">
                 {language === "en" ? "TOP FANS LEADERBOARD" : "BẢNG XẾP HẠNG FAN"}
               </h2>
-              <p className="text-gray-400">
+              <p className="text-gray-400 text-sm sm:text-base px-2">
                 {language === "en" 
                   ? "Earn Gen.G Points through activities"
                   : "Kiếm Gen.G Points thông qua các hoạt động"}
@@ -203,12 +203,12 @@ export default function FanZonePage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className={`flex items-center gap-4 p-4 ${
+                  className={`flex items-center gap-2 sm:gap-3 md:gap-4 p-3 sm:p-4 ${
                     i < leaderboard.length - 1 ? 'border-b border-black-charcoal' : ''
                   } ${i < 3 ? 'bg-gold/5' : ''}`}
                 >
                   {/* Rank */}
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center font-heading text-lg ${
+                  <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-heading text-base sm:text-lg flex-shrink-0 ${
                     i === 0 ? 'bg-yellow-500 text-black' :
                     i === 1 ? 'bg-gray-400 text-black' :
                     i === 2 ? 'bg-amber-700 text-white' :
@@ -218,18 +218,18 @@ export default function FanZonePage() {
                   </div>
 
                   {/* Name */}
-                  <div className="flex-grow">
-                    <p className="font-semibold text-white">{fan.name}</p>
-                    <div className="flex items-center gap-2 text-xs text-gray-500">
-                      <Star size={12} className="text-gold" />
-                      <span>{language === "en" ? "Gen.G Superfan" : "Fan Cứng Gen.G"}</span>
+                  <div className="flex-grow min-w-0">
+                    <p className="font-semibold text-white text-sm sm:text-base truncate">{fan.name}</p>
+                    <div className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-gray-500">
+                      <Star size={10} className="sm:w-3 sm:h-3 text-gold flex-shrink-0" />
+                      <span className="truncate">{language === "en" ? "Gen.G Superfan" : "Fan Cứng Gen.G"}</span>
                     </div>
                   </div>
 
                   {/* Points */}
-                  <div className="text-right">
-                    <p className="font-heading text-2xl text-gold">{fan.points.toLocaleString()}</p>
-                    <p className="text-xs text-gray-500">
+                  <div className="text-right flex-shrink-0">
+                    <p className="font-heading text-xl sm:text-2xl text-gold">{fan.points.toLocaleString()}</p>
+                    <p className="text-[10px] sm:text-xs text-gray-500">
                       {language === "en" ? "Gen.G Points" : "Điểm Gen.G"}
                     </p>
                   </div>
@@ -237,14 +237,14 @@ export default function FanZonePage() {
               ))}
             </div>
 
-            <div className="text-center mt-6">
-              <p className="text-gray-400 text-sm mb-4">
+            <div className="text-center mt-4 sm:mt-6 px-2">
+              <p className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4">
                 {language === "en"
                   ? "Earn points by participating in predictions, quizzes, and community activities!"
                   : "Kiếm điểm bằng cách tham gia dự đoán, quiz và các hoạt động cộng đồng!"}
               </p>
-              <button className="btn-outline-gold flex items-center gap-2 mx-auto">
-                <Flame size={18} />
+              <button className="btn-outline-gold flex items-center gap-2 mx-auto text-sm sm:text-base py-2 sm:py-2.5 px-4 sm:px-6">
+                <Flame size={16} className="sm:w-[18px] sm:h-[18px]" />
                 {language === "en" ? "How to Earn Points" : "Cách Kiếm Điểm"}
               </button>
             </div>
@@ -253,35 +253,35 @@ export default function FanZonePage() {
       </section>
 
       {/* Daily Challenge */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
+      <section className="py-8 sm:py-12">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-black-light border border-gold/30 rounded-2xl p-8 text-center max-w-2xl mx-auto relative overflow-hidden"
+            className="bg-black-light border border-gold/30 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 text-center max-w-2xl mx-auto relative overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-radial-gold opacity-10" />
             
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 bg-gold/20 text-gold 
-                            rounded-full px-4 py-2 mb-6">
-                <Brain className="w-4 h-4" />
-                <span className="text-sm font-medium">
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-gold/20 text-gold 
+                            rounded-full px-3 sm:px-4 py-1.5 sm:py-2 mb-4 sm:mb-6">
+                <Brain className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <span className="text-xs sm:text-sm font-medium">
                   {language === "en" ? "DAILY CHALLENGE" : "THỬ THÁCH HÀNG NGÀY"}
                 </span>
               </div>
 
-              <h3 className="font-heading text-2xl text-white mb-4">
+              <h3 className="font-heading text-xl sm:text-2xl text-white mb-3 sm:mb-4 px-2">
                 {language === "en" ? "Today's Quiz" : "Quiz của ngày hôm nay"}
               </h3>
-              <p className="text-gray-400 mb-6">
+              <p className="text-gray-400 mb-4 sm:mb-6 text-sm sm:text-base px-2">
                 {language === "en"
                   ? "\"How many MVP titles has Chovy won in his LCK career?\""
                   : "\"Chovy đã có bao nhiêu danh hiệu MVP trong sự nghiệp LCK?\""}
               </p>
 
-              <div className="grid grid-cols-2 gap-4 max-w-md mx-auto mb-6">
+              <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4 max-w-md mx-auto mb-4 sm:mb-6">
                 {(language === "en" 
                   ? ["2 times", "3 times", "4 times", "5 times"]
                   : ["2 lần", "3 lần", "4 lần", "5 lần"]
@@ -289,14 +289,15 @@ export default function FanZonePage() {
                   <button
                     key={i}
                     className="bg-black-charcoal hover:bg-gold/20 hover:border-gold border border-transparent
-                             rounded-lg py-3 px-4 text-white hover:text-gold transition-all"
+                             rounded-lg py-2 sm:py-2.5 md:py-3 px-3 sm:px-4 text-white hover:text-gold 
+                             transition-all text-xs sm:text-sm md:text-base"
                   >
                     {answer}
                   </button>
                 ))}
               </div>
 
-              <p className="text-gold text-sm">
+              <p className="text-gold text-xs sm:text-sm px-2">
                 🎁 {language === "en" 
                   ? "Answer correctly to earn +100 Gen.G Points!"
                   : "Trả lời đúng nhận +100 Gen.G Points!"}

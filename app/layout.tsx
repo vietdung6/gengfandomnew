@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Providers } from "@/components/providers/Providers";
+import FloatingSearchButton from "@/components/search/FloatingSearchButton";
 
 // Oswald supports Vietnamese better than Bebas Neue
 const oswald = Oswald({
@@ -40,6 +41,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />
+          <FloatingSearchButton />
         </Providers>
       </body>
     </html>
