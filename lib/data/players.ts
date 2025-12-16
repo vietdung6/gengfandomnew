@@ -16,6 +16,7 @@ export interface Player {
   flag: string;
   number?: string;
   featured?: boolean;
+  color?: string;
   animalIcon?: string;
   champions?: string[];
   stats?: PlayerStats;
