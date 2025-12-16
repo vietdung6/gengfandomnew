@@ -59,12 +59,12 @@ export default function Header() {
   const handleInstallClick = async () => {
     // If native PWA prompt is available (Android / supported browsers), trigger it
     if (deferredPrompt) {
-      await deferredPrompt.prompt();
-      try {
-        await deferredPrompt.userChoice;
-      } finally {
-        setDeferredPrompt(null);
-      }
+    await deferredPrompt.prompt();
+    try {
+      await deferredPrompt.userChoice;
+    } finally {
+      setDeferredPrompt(null);
+    }
       return;
     }
 

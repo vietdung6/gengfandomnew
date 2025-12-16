@@ -49,8 +49,10 @@ export default function AchievementsPage() {
         setCurrentTourYear={setCurrentTourYear}
       />
 
-      {/* Legacy Banner */}
-      <LegacyBannerSection language={language} />
+      {/* Legacy Banner - hide on mobile to avoid overlapping with History Tour UX */}
+      <div className="hidden md:block">
+        <LegacyBannerSection language={language} />
+      </div>
       
       {/* Milestones */}
       <MilestonesSection language={language} milestones={milestones} />

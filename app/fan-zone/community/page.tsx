@@ -209,8 +209,8 @@ export default function CommunityPage() {
       link: "https://www.facebook.com/profile.php?id=61575035294975",
       description:
         language === "en"
-          ? "Vietnamese fan-run meme page about Chovy & Gen.G; occasional merch posts (not official)."
-          : "Fanpage meme của fan về Chovy & Gen.G; thi thoảng đăng merch (không phải shop chính thức).",
+          ? "This is a personal vietnamese blog supporting Chovy and GenG. It accepts orders for GenG products and The MAU - Chovy's shop (not the official shop)."
+          : "Blog cá nhân support Chovy & GenG. Có nhận order merch GenG, The MAU - shop của Chovy (không phải shop chính thức).",
     },
   ];
 

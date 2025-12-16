@@ -230,14 +230,14 @@ export default function HomePage() {
               const a = t.home.achievementsTeaser;
               return (
                 <>
-                  <h2 className="font-heading text-4xl sm:text-5xl text-center mb-4">
-                    <span className="text-gradient-gold">
+            <h2 className="font-heading text-4xl sm:text-5xl text-center mb-4">
+              <span className="text-gradient-gold">
                       {a.title}
-                    </span>
-                  </h2>
-                  <p className="text-gray-400 max-w-md mx-auto">
+              </span>
+            </h2>
+            <p className="text-gray-400 max-w-md mx-auto">
                     {a.subtitle}
-                  </p>
+            </p>
                 </>
               );
             })()}
@@ -247,24 +247,24 @@ export default function HomePage() {
             {(() => {
               const a = t.home.achievementsTeaser;
               const cards = [
-                { 
+              { 
                   title: a.msiTitle, 
                   type: a.msiType, 
-                  logo: <MSILogo className="w-16 h-16 text-blue-400 mx-auto" />,
-                  color: "from-blue-500/20"
-                },
-                { 
+                logo: <MSILogo className="w-16 h-16 text-blue-400 mx-auto" />,
+                color: "from-blue-500/20"
+              },
+              { 
                   title: a.ewcTitle, 
                   type: a.ewcType, 
-                  logo: <EWCLogo className="w-16 h-16 text-white mx-auto" />,
-                  color: "from-white/20"
-                },
-                { 
+                logo: <EWCLogo className="w-16 h-16 text-white mx-auto" />,
+                color: "from-white/20"
+              },
+              { 
                   title: a.lckTitle, 
                   type: a.lckType, 
-                  logo: <img src={tournamentLogos.lck} alt="LCK" className="w-16 h-16 mx-auto object-contain" />,
-                  color: "from-gold/20"
-                },
+                logo: <img src={tournamentLogos.lck} alt="LCK" className="w-16 h-16 mx-auto object-contain" />,
+                color: "from-gold/20"
+              },
               ];
               return cards.map((achievement, i) => (
               <motion.div
