@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 
 interface HistoryTourProps {
   language: string;
-  expandedYear: number | null;
   setExpandedYear: (year: number | null) => void;
   isTourMode: boolean;
   setIsTourMode: (value: boolean) => void;
@@ -15,7 +14,6 @@ interface HistoryTourProps {
 
 export function HistoryTour({
   language,
-  expandedYear: _expandedYear,
   setExpandedYear,
   isTourMode,
   setIsTourMode,

@@ -2,11 +2,10 @@
 
 import { motion } from "framer-motion";
 import { HistoryTour } from "@/components/achievements/HistoryTour";
-import { translations } from "@/lib/i18n/translations";
+import { translations, Language } from "@/lib/i18n/translations";
 
 interface AchievementsHeroProps {
-  language: string;
-  expandedYear: number | null;
+  language: Language;
   setExpandedYear: (year: number | null) => void;
   isTourMode: boolean;
   setIsTourMode: (value: boolean) => void;
@@ -16,7 +15,6 @@ interface AchievementsHeroProps {
 
 export function AchievementsHero({
   language,
-  expandedYear,
   setExpandedYear,
   isTourMode,
   setIsTourMode,
@@ -139,7 +137,6 @@ export function AchievementsHero({
 
           <HistoryTour
             language={language}
-            expandedYear={expandedYear}
             setExpandedYear={setExpandedYear}
             isTourMode={isTourMode}
             setIsTourMode={setIsTourMode}

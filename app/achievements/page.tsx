@@ -42,7 +42,6 @@ export default function AchievementsPage() {
       {/* Hero */}
       <AchievementsHero
         language={language}
-        expandedYear={expandedYear}
         setExpandedYear={setExpandedYear}
         isTourMode={isTourMode}
         setIsTourMode={setIsTourMode}
