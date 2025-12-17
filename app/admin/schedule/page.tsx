@@ -29,6 +29,7 @@ interface UpcomingMatch {
   time: string;
   timezone: string;
   tournament: string;
+  week: string;
   venue: string;
   streamUrl: string;
   status: string;
@@ -146,6 +147,7 @@ export default function AdminSchedulePage() {
       time: "17:00",
       timezone: "GMT+7 (VN)",
       tournament: scheduleData.currentTournament || "LCK Spring 2025",
+      week: "",
       venue: "LoL Park",
       streamUrl: "",
       status: "upcoming",
@@ -471,6 +473,56 @@ export default function AdminSchedulePage() {
                         />
                       </div>
 
+                      <div>
+                        <label className="text-gray-400 text-sm mb-1 block">
+                          {language === "en" ? "Week" : "Tuần"}
+                        </label>
+                        <input
+                          type="text"
+                          value={match.week || ""}
+                          onChange={(e) => {
+                            const updated = [...scheduleData.upcomingMatches];
+                            updated[index].week = e.target.value;
+                            setScheduleData({ ...scheduleData, upcomingMatches: updated });
+                          }}
+                          placeholder={language === "en" ? "e.g., Week 1" : "VD: Tuần 1"}
+                          className="w-full bg-black-charcoal border border-gray-700 rounded px-3 py-2 text-white focus:border-gold focus:outline-none"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="text-gray-400 text-sm mb-1 block">
+                          {language === "en" ? "Timezone" : "Múi giờ"}
+                        </label>
+                        <input
+                          type="text"
+                          value={match.timezone || ""}
+                          onChange={(e) => {
+                            const updated = [...scheduleData.upcomingMatches];
+                            updated[index].timezone = e.target.value;
+                            setScheduleData({ ...scheduleData, upcomingMatches: updated });
+                          }}
+                          placeholder={language === "en" ? "e.g., GMT+7 (VN)" : "VD: GMT+7 (VN)"}
+                          className="w-full bg-black-charcoal border border-gray-700 rounded px-3 py-2 text-white focus:border-gold focus:outline-none"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="text-gray-400 text-sm mb-1 block">
+                          {language === "en" ? "Stream URL" : "Link Stream"}
+                        </label>
+                        <input
+                          type="text"
+                          value={match.streamUrl || ""}
+                          onChange={(e) => {
+                            const updated = [...scheduleData.upcomingMatches];
+                            updated[index].streamUrl = e.target.value;
+                            setScheduleData({ ...scheduleData, upcomingMatches: updated });
+                          }}
+                          placeholder={language === "en" ? "e.g., https://twitch.tv/..." : "VD: https://twitch.tv/..."}
+                          className="w-full bg-black-charcoal border border-gray-700 rounded px-3 py-2 text-white focus:border-gold focus:outline-none"
+                        />
+                      </div>
 
                       {/* Lineup editor */}
                       <div className="md:col-span-2">
@@ -578,6 +630,7 @@ export default function AdminSchedulePage() {
                               score: { gen: 0, opp: 0 },
                               result: "win",
                               tournament: match.tournament,
+                              week: match.week || "",
                               mvp: "",
                               vodUrl: "",
                               lineup: match.lineup && match.lineup.length > 0
@@ -818,6 +871,40 @@ export default function AdminSchedulePage() {
                             />
                           )}
                         </div>
+                      </div>
+
+                      <div>
+                        <label className="text-gray-400 text-sm mb-1 block">
+                          {language === "en" ? "Week" : "Tuần"}
+                        </label>
+                        <input
+                          type="text"
+                          value={result.week || ""}
+                          onChange={(e) => {
+                            const updated = [...scheduleData.recentResults];
+                            updated[index].week = e.target.value;
+                            setScheduleData({ ...scheduleData, recentResults: updated });
+                          }}
+                          placeholder={language === "en" ? "e.g., Week 1" : "VD: Tuần 1"}
+                          className="w-full bg-black-charcoal border border-gray-700 rounded px-3 py-2 text-white focus:border-gold focus:outline-none"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="text-gray-400 text-sm mb-1 block">
+                          {language === "en" ? "VOD URL" : "Link VOD"}
+                        </label>
+                        <input
+                          type="text"
+                          value={result.vodUrl || ""}
+                          onChange={(e) => {
+                            const updated = [...scheduleData.recentResults];
+                            updated[index].vodUrl = e.target.value;
+                            setScheduleData({ ...scheduleData, recentResults: updated });
+                          }}
+                          placeholder={language === "en" ? "e.g., https://youtube.com/..." : "VD: https://youtube.com/..."}
+                          className="w-full bg-black-charcoal border border-gray-700 rounded px-3 py-2 text-white focus:border-gold focus:outline-none"
+                        />
                       </div>
 
                       {/* Lineup (concise) */}
