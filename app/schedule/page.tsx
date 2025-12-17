@@ -2,9 +2,15 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Calendar, Clock, MapPin, Tv, ChevronRight, Trophy, CheckCircle, XCircle } from "lucide-react";
+import { Calendar, Clock, MapPin, Tv, ChevronRight, Trophy, CheckCircle, XCircle, Users } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+
+interface LineupSlot {
+  role: string;
+  player: string;
+  note?: string;
+}
 
 interface UpcomingMatch {
   id: string;
@@ -18,6 +24,7 @@ interface UpcomingMatch {
   venue: string;
   streamUrl: string;
   status: string;
+  lineup?: LineupSlot[];
 }
 
 interface MatchResult {
@@ -31,6 +38,7 @@ interface MatchResult {
   week: string;
   mvp: string;
   vodUrl: string;
+  lineup?: LineupSlot[];
 }
 
 export default function SchedulePage() {
@@ -113,7 +121,7 @@ export default function SchedulePage() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ scale: 1.01, x: 10 }}
-                className="card-dark flex flex-col md:flex-row items-center gap-6 
+                className="card-dark flex flex-col md:flex-row items-center gap-6 p-6
                           cursor-pointer group bg-[#0A0A0A] border border-[#1A1A1A]"
               >
                 {/* Date */}
@@ -131,7 +139,7 @@ export default function SchedulePage() {
                 </div>
 
                 {/* Match Info */}
-                <div className="flex-grow flex flex-col md:flex-row items-center gap-4 md:gap-8">
+                <div className="flex-grow flex flex-col gap-4">
                   {/* Teams */}
                   <div className="flex items-center gap-4">
                     <div className="text-center">
@@ -185,7 +193,7 @@ export default function SchedulePage() {
                   </div>
 
                   {/* Details */}
-                  <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm text-gray-400">
+                  <div className="flex flex-wrap gap-4 text-sm text-gray-400">
                     <span className="flex items-center gap-1">
                       <Clock size={14} className="text-gold" />
                       {match.time} KST
@@ -199,6 +207,35 @@ export default function SchedulePage() {
                       {match.week}
                     </span>
                   </div>
+
+                  {/* Lineup Section */}
+                  {match.lineup && match.lineup.length > 0 && (
+                    <div className="border-t border-gray-800 pt-4 mt-2">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Users size={14} className="text-gold" />
+                        <span className="text-xs text-gray-400 uppercase tracking-wider">
+                          {language === 'vi' ? 'Đội hình Gen.G' : 'Gen.G Lineup'}
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-5 gap-2">
+                        {match.lineup.map((slot, idx) => (
+                          <div key={idx} className="text-center bg-black-charcoal/50 rounded-lg p-2 border border-gray-800">
+                            <div className="text-xs text-gray-500 mb-1 uppercase">
+                              {slot.role}
+                            </div>
+                            <div className="text-sm font-semibold text-white">
+                              {slot.player}
+                            </div>
+                            {slot.note && (
+                              <div className="text-xs text-gray-500 mt-0.5">
+                                {slot.note}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Watch Button */}
@@ -358,6 +395,35 @@ export default function SchedulePage() {
                       <span className="text-gold text-lg">⭐</span>
                       <span className="text-gray-400 text-xs uppercase tracking-wider">MVP</span>
                       <span className="text-white font-bold ml-auto">{match.mvp}</span>
+                    </div>
+                  </div>
+                )}
+
+                {/* Lineup Section */}
+                {match.lineup && match.lineup.length > 0 && (
+                  <div className="border-t border-gray-800 pt-4 mt-4">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Users size={14} className="text-gold" />
+                      <span className="text-xs text-gray-400 uppercase tracking-wider">
+                        {language === 'vi' ? 'Đội hình Gen.G' : 'Gen.G Lineup'}
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-5 gap-2">
+                      {match.lineup.map((slot, idx) => (
+                        <div key={idx} className="text-center bg-black-charcoal/50 rounded-lg p-2 border border-gray-800">
+                          <div className="text-xs text-gray-500 mb-1 uppercase">
+                            {slot.role}
+                          </div>
+                          <div className="text-sm font-semibold text-white">
+                            {slot.player}
+                          </div>
+                          {slot.note && (
+                            <div className="text-xs text-gray-500 mt-0.5">
+                              {slot.note}
+                            </div>
+                          )}
+                        </div>
+                      ))}
                     </div>
                   </div>
                 )}

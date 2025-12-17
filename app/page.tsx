@@ -23,7 +23,7 @@ export default function HomePage() {
   const stats = [
     { icon: Trophy, value: "7x", label: t.home.stats.lckChampions, asterisk: "**", logo: <img src={tournamentLogos.lck} alt="LCK" className="w-8 h-8 object-contain" /> }, // Samsung + LCK Regular
     { icon: Star, value: "2x", label: t.home.stats.worldsChampions, asterisk: "*", logo: <WorldsLogo className="w-8 h-8 text-yellow-400" /> }, // Samsung only
-    { icon: Calendar, value: "2012", label: t.home.stats.established, asterisk: "*" }, // Samsung only
+    { icon: Calendar, value: "2013", label: t.home.stats.established, asterisk: "*" }, // Samsung only
     { icon: Users, value: "5", label: t.home.stats.starPlayers },
   ];
 

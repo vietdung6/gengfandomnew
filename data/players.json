@@ -11,7 +11,7 @@
       "animalIcon": "🐸",
       "champions": ["K'Sante", "Aatrox", "Gwen"],
       "stats": { "kda": "4.2", "cs": "8.9", "games": "142" },
-      "image": "/images/players/Kiin.webp"
+      "image": "https://am-a.akamaihd.net/image?resize=375:&f=http%3A%2F%2Fstatic.lolesports.com%2Fplayers%2F1758213448905_kiin.png"
     },
     {
       "id": "canyon",
@@ -24,7 +24,7 @@
       "animalIcon": "🐻‍❄️",
       "champions": ["Nidalee", "Lee Sin", "Graves"],
       "stats": { "kda": "5.1", "cs": "6.2", "games": "156" },
-      "image": "/images/players/Canyon.jpg"
+      "image": "https://am-a.akamaihd.net/image?resize=375:&f=http%3A%2F%2Fstatic.lolesports.com%2Fplayers%2F1758212470925_canyon.png"
     },
     {
       "id": "chovy",
@@ -37,7 +37,7 @@
       "animalIcon": "🐱",
       "champions": ["Cassiopeia", "Galio", "Taliyah"],
       "stats": { "kda": "8.2", "cs": "10.1", "games": "168" },
-      "image": "/images/players/Chovy.jpg"
+      "image": "https://am-a.akamaihd.net/image?resize=375:&f=http%3A%2F%2Fstatic.lolesports.com%2Fplayers%2F1758212535327_chovu.png"
     },
     {
       "id": "ruler",
@@ -50,7 +50,7 @@
       "animalIcon": "🐶",
       "champions": ["Lucian", "Ezreal", "Zeri"],
       "stats": { "kda": "7.1", "cs": "10.5", "games": "245" },
-      "image": "/images/players/Ruler.jpg"
+      "image": "https://am-a.akamaihd.net/image?resize=375:&f=http%3A%2F%2Fstatic.lolesports.com%2Fplayers%2F1758213914983_ruler.png"
     },
     {
       "id": "duro",
@@ -63,7 +63,7 @@
       "animalIcon": "🐰",
       "champions": ["Nautilus", "Alistar", "Rakan"],
       "stats": { "kda": "4.5", "cs": "1.1", "games": "98" },
-      "image": "/images/players/Duro.webp"
+      "image": "https://am-a.akamaihd.net/image?resize=375:&f=http%3A%2F%2Fstatic.lolesports.com%2Fplayers%2F1758213092149_duro.png"
     },
     {
       "id": "genrang",
